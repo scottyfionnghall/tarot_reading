@@ -6,6 +6,7 @@ import spreads
 
 
 # scrape cards into tarot.json file
+# if file exists, skip this step
 deck_file = Path('tarot.json')
 if deck_file.exists():
     print('hey')
@@ -17,6 +18,7 @@ cards = deck_file.read_text()
 cards = json.loads(cards)
 deck = []
 for card in cards:
+    # create Card objects for each card
     name = card['name']
     upright = card['upright']
     reversed = card['reversed']
